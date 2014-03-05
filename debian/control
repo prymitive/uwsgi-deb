@@ -1,0 +1,104 @@
+Source: uwsgi
+Section: web
+Priority: extra
+Maintainer: Łukasz Mierzwa <l.mierzwa@gmail.com>
+Build-Depends:
+ cdbs,
+ debhelper (>= 8.0.0),
+ libjansson-dev,
+ libpcre3-dev,
+ libxml2-dev,
+ libyaml-dev,
+ libssl-dev,
+ uuid-dev,
+ libphp5-embed,
+ php5-dev,
+ libonig-dev,
+ libqdbm-dev,
+ python2.6,
+ python2.6-dev,
+ python2.7,
+ python2.7-dev,
+ python3.1,
+ python3.1-dev,
+ python3.2,
+ python3.2-dev,
+ python3.3,
+ python3.3-dev,
+ ruby1.8,
+ ruby1.8-dev,
+ ruby1.9.1,
+ ruby1.9.1-dev,
+ ruby2.0,
+ ruby2.0-dev,
+ ruby2.1,
+ ruby2.1-dev,
+Standards-Version: 3.9.3
+Homepage: http://uwsgi-docs.readthedocs.org/
+
+Package: uwsgi-core
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Application servers (for various programming languages and
+ protocols), proxies, process managers and monitors are all implemented
+ using a common api and a common configuration style.
+
+Package: uwsgi-plugin-notfound
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, uwsgi-core (= ${binary:Version})
+Description: Dummy 404 plugin for uWSGI
+
+Package: uwsgi-plugin-cgi
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, uwsgi-core (= ${binary:Version})
+Description: CGI plugin for uWSGI
+
+Package: uwsgi-plugin-php5
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, uwsgi-core (= ${binary:Version})
+Description: PHP5 plugin for uWSGI
+
+Package: uwsgi-plugin-python2.6
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, uwsgi-core (= ${binary:Version})
+Description: Python 2.6 plugin for uWSGI
+
+Package: uwsgi-plugin-python2.7
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, uwsgi-core (= ${binary:Version})
+Description: Python 2.7 plugin for uWSGI
+
+Package: uwsgi-plugin-python3.1
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, uwsgi-core (= ${binary:Version})
+Description: Python 3.1 plugin for uWSGI
+
+Package: uwsgi-plugin-python3.2
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, uwsgi-core (= ${binary:Version})
+Description: Python 3.2 plugin for uWSGI
+
+Package: uwsgi-plugin-python3.3
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, uwsgi-core (= ${binary:Version})
+Description: Python 3.3 plugin for uWSGI
+
+Package: uwsgi-plugin-ruby1.8
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, uwsgi-core (= ${binary:Version})
+Description: Ruby 1.8 rack plugin for uWSGI
+
+Package: uwsgi-plugin-ruby1.9
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, uwsgi-core (= ${binary:Version})
+Description: Ruby 1.9 rack plugin for uWSGI
+
+Package: uwsgi-plugin-ruby2.0
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, uwsgi-core (= ${binary:Version})
+Description: Ruby 2.0 rack plugin for uWSGI
+
+Package: uwsgi-plugin-ruby2.1
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, uwsgi-core (= ${binary:Version})
+Description: Ruby 2.1 rack plugin for uWSGI

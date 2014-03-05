@@ -1,0 +1,29 @@
+#!/usr/bin/make -f
+
+include /usr/share/cdbs/1/rules/debhelper.mk
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+override_dh_auto_test:
+	
+
+build:
+	python uwsgiconfig.py --build $(CURDIR)/debian/buildconf/upaas.ini
+	
+	python uwsgiconfig.py --plugin plugins/notfound $(CURDIR)/debian/buildconf/upaas.ini
+	
+	python uwsgiconfig.py --plugin plugins/cgi $(CURDIR)/debian/buildconf/upaas.ini
+	
+	CFLAGS="-Wno-error" LDFLAGS="-L/usr/lib/php5" python uwsgiconfig.py --plugin plugins/php $(CURDIR)/debian/buildconf/upaas.ini php5
+	
+	/usr/bin/python2.6 uwsgiconfig.py --plugin plugins/python $(CURDIR)/debian/buildconf/upaas.ini python26
+	/usr/bin/python2.7 uwsgiconfig.py --plugin plugins/python $(CURDIR)/debian/buildconf/upaas.ini python27
+	/usr/bin/python3.1 uwsgiconfig.py --plugin plugins/python $(CURDIR)/debian/buildconf/upaas.ini python31
+	/usr/bin/python3.2 uwsgiconfig.py --plugin plugins/python $(CURDIR)/debian/buildconf/upaas.ini python32
+	/usr/bin/python3.3 uwsgiconfig.py --plugin plugins/python $(CURDIR)/debian/buildconf/upaas.ini python33
+	
+	UWSGICONFIG_RUBYPATH=/usr/bin/ruby1.8 python uwsgiconfig.py --plugin plugins/rack $(CURDIR)/debian/buildconf/upaas.ini rack18
+	UWSGICONFIG_RUBYPATH=/usr/bin/ruby1.9.1 python uwsgiconfig.py --plugin plugins/rack $(CURDIR)/debian/buildconf/upaas.ini rack19
+	UWSGICONFIG_RUBYPATH=/usr/bin/ruby2.0 python uwsgiconfig.py --plugin plugins/rack $(CURDIR)/debian/buildconf/upaas.ini rack20
+	UWSGICONFIG_RUBYPATH=/usr/bin/ruby2.1 python uwsgiconfig.py --plugin plugins/rack $(CURDIR)/debian/buildconf/upaas.ini rack21
