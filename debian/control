@@ -56,6 +56,23 @@ Priority: optional
 Depends: ${shlibs:Depends}, ${misc:Depends}, uwsgi-core (= ${binary:Version}), upstart
 Description: Upstart script for running uWSGI emperor instance
 
+Package: uwsgi-plugins
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, uwsgi-core (= ${binary:Version}), 
+ uwsgi-plugin-notfound (= ${binary:Version}),
+ uwsgi-plugin-cgi (= ${binary:Version}),
+ uwsgi-plugin-php5 (= ${binary:Version}),
+ uwsgi-plugin-python2.6 (= ${binary:Version}),
+ uwsgi-plugin-python2.7 (= ${binary:Version}),
+ uwsgi-plugin-python3.1 (= ${binary:Version}),
+ uwsgi-plugin-python3.2 (= ${binary:Version}),
+ uwsgi-plugin-python3.3 (= ${binary:Version}),
+ uwsgi-plugin-ruby1.8 (= ${binary:Version}),
+ uwsgi-plugin-ruby1.9 (= ${binary:Version}),
+ uwsgi-plugin-ruby2.0 (= ${binary:Version}),
+ uwsgi-plugin-ruby2.1 (= ${binary:Version})
+Description: Install all external uWSGI plugins (not compiled in)
+
 Package: uwsgi-plugin-notfound
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, uwsgi-core (= ${binary:Version})

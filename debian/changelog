@@ -1,3 +1,9 @@
+uwsgi (2.0.2-3) precise; urgency=low
+
+  * Added uwsgi-plugins package
+
+ -- Łukasz Mierzwa <l.mierzwa@gmail.com>  Thu, 06 Mar 2014 23:12:55 +0100
+
 uwsgi (2.0.2-2) precise; urgency=low
 
   * Added uwsgi-emperor package
