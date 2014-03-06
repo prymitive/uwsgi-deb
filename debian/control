@@ -50,6 +50,12 @@ Description: Application servers (for various programming languages and
  protocols), proxies, process managers and monitors are all implemented
  using a common api and a common configuration style.
 
+Package: uwsgi-emperor
+Architecture: any
+Priority: optional
+Depends: ${shlibs:Depends}, ${misc:Depends}, uwsgi-core (= ${binary:Version}), upstart
+Description: Upstart script for running uWSGI emperor instance
+
 Package: uwsgi-plugin-notfound
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, uwsgi-core (= ${binary:Version})
