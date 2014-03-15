@@ -4,6 +4,7 @@ Priority: extra
 Maintainer: Łukasz Mierzwa <l.mierzwa@gmail.com>
 Build-Depends:
  cdbs,
+ quilt,
  debhelper (>= 8.0.0),
  libjansson-dev,
  libpcre3-dev,

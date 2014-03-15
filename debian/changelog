@@ -1,3 +1,9 @@
+uwsgi (2.0.2-7) precise; urgency=low
+
+  * Fixed build
+
+ -- Łukasz Mierzwa <l.mierzwa@gmail.com>  Sun, 16 Mar 2014 00:16:04 +0100
+
 uwsgi (2.0.2-6) precise; urgency=low
 
   * Fixed patches
