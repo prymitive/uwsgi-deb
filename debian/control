@@ -85,7 +85,7 @@ Description: CGI plugin for uWSGI
 
 Package: uwsgi-plugin-php5
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, uwsgi-core (= ${binary:Version})
+Depends: ${shlibs:Depends}, ${misc:Depends}, uwsgi-core (= ${binary:Version}), libphp5-embed
 Description: PHP5 plugin for uWSGI
 
 Package: uwsgi-plugin-python2.6
