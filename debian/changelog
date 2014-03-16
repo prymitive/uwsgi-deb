@@ -1,3 +1,9 @@
+uwsgi (2.0.2-8) precise; urgency=low
+
+  * Test patch for SPDY bug
+
+ -- Łukasz Mierzwa <l.mierzwa@gmail.com>  Sun, 16 Mar 2014 23:36:54 +0100
+
 uwsgi (2.0.2-7) precise; urgency=low
 
   * Fixed build
