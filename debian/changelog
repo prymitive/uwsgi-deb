@@ -1,3 +1,9 @@
+uwsgi (2.0.2-9) precise; urgency=low
+
+  * Add spdy header patch
+
+ -- Łukasz Mierzwa <l.mierzwa@gmail.com>  Tue, 18 Mar 2014 23:40:04 +0100
+
 uwsgi (2.0.2-8) precise; urgency=low
 
   * Test patch for SPDY bug
