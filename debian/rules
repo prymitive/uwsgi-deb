@@ -33,6 +33,8 @@ build:
 		$(CURDIR)/debian/buildconf/upaas.ini python32
 	/usr/bin/python3.3 uwsgiconfig.py --plugin plugins/python \
 		$(CURDIR)/debian/buildconf/upaas.ini python33
+	/usr/bin/python3.4 uwsgiconfig.py --plugin plugins/python \
+		$(CURDIR)/debian/buildconf/upaas.ini python34
 	
 	UWSGICONFIG_RUBYPATH=/usr/bin/ruby1.8 \
 		python uwsgiconfig.py --plugin plugins/rack \

@@ -1,3 +1,9 @@
+uwsgi (2.0.3-2) precise; urgency=low
+
+  * Add python 3.4 plugin
+
+ -- Łukasz Mierzwa <l.mierzwa@gmail.com>  Wed, 19 Mar 2014 23:24:51 +0100
+
 uwsgi (2.0.3-1) precise; urgency=low
 
   * New upstream release
