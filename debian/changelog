@@ -1,3 +1,9 @@
+uwsgi (2.0.3-3) precise; urgency=low
+
+  * Test refactored SPDY header patch
+
+ -- Łukasz Mierzwa <l.mierzwa@gmail.com>  Tue, 25 Mar 2014 19:23:43 +0100
+
 uwsgi (2.0.3-2) precise; urgency=low
 
   * Add python 3.4 plugin
