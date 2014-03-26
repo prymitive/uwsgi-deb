@@ -1,11 +1,11 @@
-commit 8eb18c9e721ad93f278e4932098530bd9d7a89bc
+commit e5520a01b941c395d58e40e87c2a88027dc1ea61
 Author: Łukasz Mierzwa <l.mierzwa@gmail.com>
 Date:   Tue Mar 25 19:20:56 2014 +0100
 
     merge duplicated headers when SPDY is enabled, fixes #572
 
 diff --git a/plugins/http/spdy3.c b/plugins/http/spdy3.c
-index b07f43e..3a32e95 100644
+index b07f43e..d2f82f2 100644
 --- a/plugins/http/spdy3.c
 +++ b/plugins/http/spdy3.c
 @@ -180,8 +180,10 @@ struct uwsgi_buffer *spdy_http_to_spdy(char *buf, size_t len, uint32_t *hh) {
@@ -17,11 +17,11 @@ index b07f43e..3a32e95 100644
 +	// merge header values and ensure keys are all lowercase
 +	struct uwsgi_string_list *hr=NULL, *usl=NULL;
 +	char *line_key, *line_value;
-+	size_t line_key_len;
++	size_t line_key_len, line_value_len;
  	for(i=next;i<len;i++) {
  		if (key) {
  			if (buf[i] == '\r' || buf[i] == '\n') {
-@@ -192,11 +194,43 @@ struct uwsgi_buffer *spdy_http_to_spdy(char *buf, size_t len, uint32_t *hh) {
+@@ -192,11 +194,37 @@ struct uwsgi_buffer *spdy_http_to_spdy(char *buf, size_t len, uint32_t *hh) {
  				// tolower !!!
  				size_t j;
  				for(j=0;j<h_len;j++) {
@@ -30,45 +30,39 @@ index b07f43e..3a32e95 100644
 -					key[j] = tolower((int) key[j]);	
 +					key[j] = tolower((int) key[j]);
 +				}
-+				line_key = uwsgi_strncopy(key, colon-key);
-+				line_key_len = h_len-2-(colon-key);
-+				line_value = uwsgi_strncopy(colon+2, line_key_len);
++				line_key_len = colon - key;
++				line_key = uwsgi_strncopy(key, line_key_len);
++				line_value_len = h_len - 2 - line_key_len;
++				line_value = uwsgi_strncopy(colon+2, line_value_len);
 +				if (hr) {
 +					// check if we already store values for this key
-+					usl = uwsgi_string_list_has_item(hr, line_key, strlen(line_key));
++					usl = uwsgi_string_list_has_item(hr, line_key, line_key_len);
 +					if (usl) {
 +						// we have this key, append new value
 +						char *oldval = usl->custom_ptr;
-+						char *sbuf;
-+						size_t len = usl->custom + 1 + line_key_len;
-+						sbuf = uwsgi_malloc(len);
-+						memcpy(sbuf, usl->custom_ptr, usl->custom);
-+						// values are separated by null byte
-+						sbuf[usl->custom] = 0;
-+						memcpy(sbuf + usl->custom + 1, line_value, line_key_len);
-+						usl->custom_ptr = sbuf;
-+						usl->custom = len;
++						usl->custom_ptr = uwsgi_concat3n(usl->custom_ptr, usl->custom, "\0", 1, line_value, line_value_len);
++						usl->custom = usl->custom + 1 + line_value_len;
 +						free(oldval);
 +					}
 +					else {
 +						// this key is new
 +						usl = uwsgi_string_new_list(&hr, line_key);
 +						usl->custom_ptr = line_value;
-+						usl->custom = line_key_len;
++						usl->custom = line_value_len;
 +					}
 +				}
 +				else {
 +					// this is first key
 +					usl = uwsgi_string_new_list(&hr, line_key);
 +					usl->custom_ptr = line_value;
-+					usl->custom = line_key_len;
++					usl->custom = line_value_len;
  				}
 -				if (uwsgi_buffer_append_keyval32(ub, key, colon-key, colon+2, h_len-((colon-key)+2))) goto end;
 -				*hh+=1;
  				key = NULL;
  				h_len = 0;
  			}
-@@ -211,6 +245,18 @@ struct uwsgi_buffer *spdy_http_to_spdy(char *buf, size_t len, uint32_t *hh) {
+@@ -211,6 +239,19 @@ struct uwsgi_buffer *spdy_http_to_spdy(char *buf, size_t len, uint32_t *hh) {
  			}
  		}
  	}
@@ -80,6 +74,7 @@ index b07f43e..3a32e95 100644
 +		*hh+=1;
 +		ohr = hr;
 +		hr = hr->next;
++		free(ohr->value);
 +		free(ohr->custom_ptr);
 +		free(ohr);
 +	}
