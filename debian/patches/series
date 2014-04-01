@@ -1,3 +1,6 @@
 # spdy patches
 spdy.diff
 spdy2.diff
+
+# issue 581
+a51a396f47c95d372bdce11850edc66f7b851868.diff
