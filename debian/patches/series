@@ -4,3 +4,6 @@ spdy2.diff
 
 # issue 581
 a51a396f47c95d372bdce11850edc66f7b851868.diff
+
+# http timeouts
+3a82732b19920cf459eb2b7f9a31f1c2657152e1.diff
