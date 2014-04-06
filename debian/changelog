@@ -1,3 +1,9 @@
+uwsgi (2.0.3-8) precise; urgency=low
+
+  * --logto2 log rotate patch
+
+ -- Łukasz Mierzwa <l.mierzwa@gmail.com>  Sun, 06 Apr 2014 15:56:01 +0200
+
 uwsgi (2.0.3-7) precise; urgency=low
 
   * Add HTTP timeouts patch
