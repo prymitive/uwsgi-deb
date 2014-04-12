@@ -10,3 +10,6 @@ a51a396f47c95d372bdce11850edc66f7b851868.diff
 
 # logto2 fix
 bc3442ba29d83c1ffd566a9a612ec89146eba9b4.diff
+
+# single use (EC)DH keys
+single_dh_use.diff
