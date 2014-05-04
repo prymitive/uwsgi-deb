@@ -1,3 +1,9 @@
+uwsgi (2.0.4-2) precise; urgency=medium
+
+  * Add patch from #616
+
+ -- Łukasz Mierzwa <l.mierzwa@gmail.com>  Sun, 04 May 2014 10:27:52 +0200
+
 uwsgi (2.0.4-1) precise; urgency=low
 
   * New upstream release
