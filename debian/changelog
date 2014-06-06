@@ -1,3 +1,9 @@
+uwsgi (2.0.5.1-2) precise; urgency=low
+
+  * Patch for subscription memory leaks
+
+ -- Łukasz Mierzwa <l.mierzwa@gmail.com>  Fri, 06 Jun 2014 20:59:32 +0200
+
 uwsgi (2.0.5.1-1) precise; urgency=low
 
   * uWSGI 2.0.5.1 release
