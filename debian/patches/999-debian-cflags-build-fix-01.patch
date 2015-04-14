@@ -1,0 +1,13 @@
+diff --git a/uwsgiconfig.py b/uwsgiconfig.py
+index 9b1139b..9fc8e03 100644
+--- a/uwsgiconfig.py
++++ b/uwsgiconfig.py
+@@ -680,8 +680,6 @@ class uConf(object):
+             self.cflags += ['-fno-strict-aliasing']
+         if gcc_major >= 4:
+             self.cflags += ['-Wextra', '-Wno-unused-parameter', '-Wno-missing-field-initializers']
+-        if gcc_major == 4 and gcc_minor < 9:
+-            self.cflags.append('-Wno-format -Wno-format-security')
+ 
+         self.ldflags = os.environ.get("LDFLAGS", "").split()
+         self.libs = ['-lpthread', '-lm', '-rdynamic']
