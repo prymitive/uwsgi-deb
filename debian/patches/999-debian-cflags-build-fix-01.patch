@@ -1,11 +1,9 @@
-diff --git a/uwsgiconfig.py b/uwsgiconfig.py
-index 9b1139b..9fc8e03 100644
---- a/uwsgiconfig.py
-+++ b/uwsgiconfig.py
-@@ -680,8 +680,6 @@ class uConf(object):
-             self.cflags += ['-fno-strict-aliasing']
+--- a/uwsgiconfig.py	2015-04-14 23:17:13.156844757 +0200
++++ b/uwsgiconfig.py	2015-04-14 23:17:37.430608023 +0200
+@@ -698,8 +698,6 @@
+         # add -fno-strict-aliasing only on python2 and gcc < 4.3
          if gcc_major >= 4:
-             self.cflags += ['-Wextra', '-Wno-unused-parameter', '-Wno-missing-field-initializers']
+             self.cflags = self.cflags + [ '-Wextra', '-Wno-unused-parameter', '-Wno-missing-field-initializers' ]
 -        if gcc_major == 4 and gcc_minor < 9:
 -            self.cflags.append('-Wno-format -Wno-format-security')
  
