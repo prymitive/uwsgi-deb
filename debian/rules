@@ -50,7 +50,7 @@ build:
 		UWSGICONFIG_RUBYPATH=/usr/bin/ruby2.1 \
 		python uwsgiconfig.py --plugin plugins/rack \
 		$(CURDIR)/debian/buildconf/upaas.ini rack21
-        CFLAGS=-I/usr/include/$(DEB_HOST_TYPE)/ruby-2.2.0 \
-                UWSGICONFIG_RUBYPATH=/usr/bin/ruby2.2 \
-                python uwsgiconfig.py --plugin plugins/rack \
-                $(CURDIR)/debian/buildconf/upaas.ini rack22
+	CFLAGS=-I/usr/include/$(DEB_HOST_TYPE)/ruby-2.2.0 \
+		UWSGICONFIG_RUBYPATH=/usr/bin/ruby2.2 \
+		python uwsgiconfig.py --plugin plugins/rack \
+		$(CURDIR)/debian/buildconf/upaas.ini rack22
