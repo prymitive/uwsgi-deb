@@ -43,6 +43,8 @@ Build-Depends:
  ruby2.0-dev,
  ruby2.1,
  ruby2.1-dev,
+ ruby2.2,
+ ruby2.2-dev,
 Standards-Version: 3.9.3
 Homepage: http://uwsgi-docs.readthedocs.org/
 
@@ -74,7 +76,8 @@ Depends: ${shlibs:Depends}, ${misc:Depends}, uwsgi-core (= ${binary:Version}),
  uwsgi-plugin-ruby1.8 (= ${binary:Version}),
  uwsgi-plugin-ruby1.9 (= ${binary:Version}),
  uwsgi-plugin-ruby2.0 (= ${binary:Version}),
- uwsgi-plugin-ruby2.1 (= ${binary:Version})
+ uwsgi-plugin-ruby2.1 (= ${binary:Version}),
+ uwsgi-plugin-ruby2.2 (= ${binary:Version})
 Description: Install all external uWSGI plugins (not compiled in)
 
 Package: uwsgi-plugin-notfound
@@ -141,3 +144,8 @@ Package: uwsgi-plugin-ruby2.1
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, uwsgi-core (= ${binary:Version})
 Description: Ruby 2.1 rack plugin for uWSGI
+
+Package: uwsgi-plugin-ruby2.2
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, uwsgi-core (= ${binary:Version})
+Description: Ruby 2.2 rack plugin for uWSGI
